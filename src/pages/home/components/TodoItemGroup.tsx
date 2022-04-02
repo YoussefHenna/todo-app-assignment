@@ -26,7 +26,7 @@ const TodoItemGroup: React.FC<TodoItemGroupProps> = (props) => {
           type="bold"
           style={[styles.titleText, { backgroundColor: currentColor }]}
         >
-          {props.items[0].group?.toUpperCase()}
+          {props.items[0].groupLabel?.toUpperCase()}
         </FontText>
         <View style={styles.itemsContainer}>
           {props.items.map((item, index) => {
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   shadowContainer: {
     width: "90%",
     alignSelf: "center",
-    marginTop: 20,
+    marginTop: 30,
   },
   mainContainer: {
     backgroundColor: "white",
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   itemsContainer: {
-    paddingTop: 35,
+    paddingTop: 20,
     paddingHorizontal: 20,
     paddingBottom: 20,
   },

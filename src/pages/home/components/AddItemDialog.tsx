@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal, Pressable, StyleSheet, View } from "react-native";
 import CustomButton from "../../../components/CustomButton";
 import CustomTextInput from "../../../components/CustomTextInput";
@@ -13,6 +13,11 @@ interface AddItemDialogProps {
 const AddItemDialog: React.FC<AddItemDialogProps> = (props) => {
   const [currentItem, setCurrentItem] = useState("");
   const [currentGroup, setCurrentGroup] = useState("");
+
+  useEffect(() => {
+    setCurrentItem("");
+    setCurrentGroup("");
+  }, [props.visible]);
 
   return (
     <Modal
@@ -42,9 +47,11 @@ const AddItemDialog: React.FC<AddItemDialogProps> = (props) => {
             onPress={() => {
               props.onItemAdded({
                 item: currentItem,
-                group: currentGroup.trim() === "" ? undefined : currentGroup,
+                groupLabel:
+                  currentGroup.trim() === "" ? "No group" : currentGroup,
                 completed: false,
               });
+              props.onRequestClose();
             }}
             text="Add"
             enabled={currentItem.trim() !== ""}

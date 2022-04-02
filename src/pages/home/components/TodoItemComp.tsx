@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: "row",
     alignItems: "center",
+    marginTop: 10,
   },
   text: {
     fontSize: 14,

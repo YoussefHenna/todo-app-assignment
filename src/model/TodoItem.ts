@@ -1,5 +1,5 @@
 interface TodoItem {
   item: string;
-  group?: string;
+  groupLabel?: string;
   completed: boolean;
 }
