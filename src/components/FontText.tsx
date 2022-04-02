@@ -3,7 +3,14 @@ import { useFonts } from "expo-font";
 import { Text, TextProps, TextStyle } from "react-native";
 
 interface FontTextProps extends TextProps {
-  type?: "bold" | "extra_bold" | "extra_light" | "light" | "medium" | "regular";
+  type?:
+    | "bold"
+    | "extra_bold"
+    | "extra_light"
+    | "light"
+    | "medium"
+    | "regular"
+    | "semi_bold";
 }
 
 const FontText: React.FC<FontTextProps> = ({ type = "regular", ...props }) => {
@@ -14,6 +21,7 @@ const FontText: React.FC<FontTextProps> = ({ type = "regular", ...props }) => {
     "Manrope-Light": require("../../assets/fonts/Manrope-Light.ttf"),
     "Manrope-Medium": require("../../assets/fonts/Manrope-Medium.ttf"),
     "Manrope-Regular": require("../../assets/fonts/Manrope-Regular.ttf"),
+    "Manrope-SemiBold": require("../../assets/fonts/Manrope-SemiBold.ttf"),
   });
 
   let selectedFont = "Manrope-Regular";
@@ -35,6 +43,9 @@ const FontText: React.FC<FontTextProps> = ({ type = "regular", ...props }) => {
       break;
     case "regular":
       selectedFont = "Manrope-Regular";
+      break;
+    case "semi_bold":
+      selectedFont = "Manrope-SemiBold";
       break;
   }
 
